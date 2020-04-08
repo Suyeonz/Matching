@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="upload">
+
+
+	<select id="all" resultType="spring.model.SubjectDto">
+		select * from subject
+	</select>
+	
+
+	<select id="one" resultType="spring.model.SubjectDto" parameterType="String">
+		select * from subject where subjectName=#{a}
+	</select>
+	
+	<insert id="insert" parameterType="spring.service.UploadDto">
+		insert into subject(subjectName, startTime, endTime, subjectImage, content, cost)
+		values(#{subjectName}, #{startTime}, #{endTime}, #{subjectImage}, #{content}, #{cost})
+	</insert>
+	
+	<insert id="insert2" parameterType="spring.service.UploadDto">
+		insert into teacher(name, t_phone, t_email)
+		values(#{name}, #{t_phone}, #{t_email})
+	</insert>
+	
+</mapper>

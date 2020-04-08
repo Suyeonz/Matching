@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<context:annotation-config />
+
+	<context:component-scan base-package="spring.*" />
+
+	<!-- <bean id="viewResolver1" class="org.springframework.web.servlet.view.BeanNameViewResolver"/> -->
+
+	<bean id="viewResolver1"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/view/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+	<bean id="subjectDao" class="spring.service.SubjectDao">
+		<property name="sqlSessionFactory">
+			<ref bean="sqlSessionFactory"></ref>
+		</property>
+	</bean>
+	
+	<bean id="multipartResolver"   
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>  
+
+	<mvc:annotation-driven>
+		<mvc:message-converters>
+			<bean
+				class="org.springframework.http.converter.StringHttpMessageConverter">
+				<property name="supportedMediaTypes">
+					<list>
+						<value>text/html;charset=UTF-8</value>
+					</list>
+				</property>
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+	
+	<context:component-scan base-package="com.javatpoint"></context:component-scan>
+</beans>
