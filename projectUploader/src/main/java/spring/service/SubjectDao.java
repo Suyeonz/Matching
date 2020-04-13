@@ -17,6 +17,7 @@ public class SubjectDao extends SqlSessionDaoSupport {
 	}
 	
 	public int insert(UploadDto dto) {
+
 		return getSqlSession().insert("upload.insert", dto);
 	}
 	

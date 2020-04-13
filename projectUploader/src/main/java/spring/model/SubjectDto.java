@@ -1,14 +1,12 @@
 package spring.model;
 
-import java.sql.Timestamp;
-
 public class SubjectDto {
 	
 	private int subjectNum;
 	private String subjectName;
 	private String subjectImage;
-	private Timestamp startTime;
-	private Timestamp endTime;
+	private String startTime;
+	private String endTime;
 	private String content;
 	private int cost;
 	private String subjecttag;
@@ -35,16 +33,16 @@ public class SubjectDto {
 	public void setSubjectImage(String subjectImage) {
 		this.subjectImage = subjectImage;
 	}
-	public Timestamp getStartTime() {
+	public String getStartTime() {
 		return startTime;
 	}
-	public void setStartTime(Timestamp startTime) {
+	public void setStartTime(String startTime) {
 		this.startTime = startTime;
 	}
-	public Timestamp getEndTime() {
+	public String getEndTime() {
 		return endTime;
 	}
-	public void setEndTime(Timestamp endTime) {
+	public void setEndTime(String endTime) {
 		this.endTime = endTime;
 	}
 	public String getContent() {

@@ -18,13 +18,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<insert id="insert" parameterType="spring.service.UploadDto">
-		insert into subject(subjectName, startTime, endTime, subjectImage, content, cost)
-		values(#{subjectName}, #{startTime}, #{endTime}, #{subjectImage}, #{content}, #{cost})
+		insert into subject(subjectName, startTime, endTime, content, subjectImage, cost)
+		values(#{subjectName}, #{startTime}, #{endTime}, #{content}, #{subjectImage}, #{cost})
 	</insert>
 	
 	<insert id="insert2" parameterType="spring.service.UploadDto">
-		insert into teacher(name, t_phone, t_email)
-		values(#{name}, #{t_phone}, #{t_email})
+		insert into teacher(name, t_email, t_phone)
+		values(#{name}, #{t_email}, #{t_phone})
 	</insert>
 	
 </mapper>

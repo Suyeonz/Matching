@@ -1,7 +1,5 @@
 package spring.service;
 
-import java.util.Date;
-
 public class UploadDto {
 	
 	private int subjectNum;
@@ -9,16 +7,16 @@ public class UploadDto {
 	private String name;
 	private String t_phone;
 	private String t_email;
-	private Date startTime;
-	private Date endTime;
+	private String startTime;
+	private String endTime;
 	private String subjectImage;
 	private String content;
 	private int cost;
 	
 	public UploadDto() {}
 
-	public UploadDto(int subjectNum, String subjectName, String name, String t_phone, String t_email, Date startTime,
-			Date endTime, String subjectImage, String content, int cost) {
+	public UploadDto(int subjectNum, String subjectName, String name, String t_phone, String t_email, String startTime,
+			String endTime, String subjectImage, String content, int cost) {
 		super();
 		this.subjectNum = subjectNum;
 		this.subjectName = subjectName;
@@ -72,19 +70,19 @@ public class UploadDto {
 		this.t_email = t_email;
 	}
 
-	public Date getStartTime() {
+	public String getStartTime() {
 		return startTime;
 	}
 
-	public void setStartTime(Date startTime) {
+	public void setStartTime(String startTime) {
 		this.startTime = startTime;
 	}
 
-	public Date getEndTime() {
+	public String getEndTime() {
 		return endTime;
 	}
 
-	public void setEndTime(Date endTime) {
+	public void setEndTime(String endTime) {
 		this.endTime = endTime;
 	}
 
@@ -110,5 +108,5 @@ public class UploadDto {
 
 	public void setCost(int cost) {
 		this.cost = cost;
-	}	
+	}
 }
