@@ -15,6 +15,7 @@ public class SubjectDto {
 	private int studentCount;
 	private int subjectScore;
 	
+	
 	public int getSubjectNum() {
 		return subjectNum;
 	}

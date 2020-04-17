@@ -7,12 +7,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="upload">
 
-
-	<select id="all" resultType="spring.model.SubjectDto">
-		select * from subject
-	</select>
 	
-
+	<!-- <select id="all" resultType="spring.model.SubjectDto">
+		select * from subject
+	</select> -->
+	
 	<select id="one" resultType="spring.model.SubjectDto" parameterType="String">
 		select * from subject where subjectName=#{a}
 	</select>
@@ -22,9 +21,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		values(#{subjectName}, #{startTime}, #{endTime}, #{content}, #{subjectImage}, #{cost})
 	</insert>
 	
-	<insert id="insert2" parameterType="spring.service.UploadDto">
-		insert into teacher(name, t_email, t_phone)
-		values(#{name}, #{t_email}, #{t_phone})
-	</insert>
+	<!-- <select id="teacher" parameterType="spring.service.UploadDto">
+		select name, t_email, t_phone from teacher where name=#{name}
+	</select> -->
 	
 </mapper>

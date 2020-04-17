@@ -27,9 +27,5 @@ public class SubjectService {
 	
 	public int insertUpload(UploadDto dto) {
 		return dao.insert(dto);
-	}
-	
-	public int insertUpload2(UploadDto dto) {
-		return dao.insert2(dto);
-	}
+	}	 
 }

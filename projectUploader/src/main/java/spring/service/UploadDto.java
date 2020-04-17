@@ -4,9 +4,6 @@ public class UploadDto {
 	
 	private int subjectNum;
 	private String subjectName;
-	private String name;
-	private String t_phone;
-	private String t_email;
 	private String startTime;
 	private String endTime;
 	private String subjectImage;
@@ -14,21 +11,22 @@ public class UploadDto {
 	private int cost;
 	
 	public UploadDto() {}
+	
+	
 
-	public UploadDto(int subjectNum, String subjectName, String name, String t_phone, String t_email, String startTime,
-			String endTime, String subjectImage, String content, int cost) {
+	public UploadDto(int subjectNum, String subjectName, String startTime, String endTime, String subjectImage,
+			String content, int cost) {
 		super();
 		this.subjectNum = subjectNum;
 		this.subjectName = subjectName;
-		this.name = name;
-		this.t_phone = t_phone;
-		this.t_email = t_email;
 		this.startTime = startTime;
 		this.endTime = endTime;
 		this.subjectImage = subjectImage;
 		this.content = content;
 		this.cost = cost;
 	}
+
+
 
 	public int getSubjectNum() {
 		return subjectNum;
@@ -44,30 +42,6 @@ public class UploadDto {
 
 	public void setSubjectName(String subjectName) {
 		this.subjectName = subjectName;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getT_phone() {
-		return t_phone;
-	}
-
-	public void setT_phone(String t_phone) {
-		this.t_phone = t_phone;
-	}
-
-	public String getT_email() {
-		return t_email;
-	}
-
-	public void setT_email(String t_email) {
-		this.t_email = t_email;
 	}
 
 	public String getStartTime() {
@@ -108,5 +82,5 @@ public class UploadDto {
 
 	public void setCost(int cost) {
 		this.cost = cost;
-	}
+	}	
 }

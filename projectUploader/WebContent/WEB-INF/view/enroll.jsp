@@ -7,20 +7,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-   
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css"/>  
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  
-<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script> 
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
 
 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css"/>
 
-<script type="text/javascript">
-  $(function() {
-    $('#datetimepicker1').datetimepicker({
-      language: 'pt-BR'
-    });
-  });
-</script>
+</head>
 
   <!-- 자동 -(하이픈) 생성 -->
 <script>
@@ -52,54 +49,6 @@ function inputPhoneNumber(obj) {
 }
 </script>
 
-<script type="text/javascript">
-    function inputTimeColon(time) {
-
-
-
-        // replace 함수를 사용하여 콜론( : )을 공백으로 치환한다.
-        var replaceTime = time.value.replace(/\:/g, "");
-
-
-
-        // 텍스트박스의 입력값이 4~5글자 사이가 되는 경우에만 실행한다.
-        if(replaceTime.length >= 4 && replaceTime.length < 5) {
-
-            var hours = replaceTime.substring(0, 2);      // 선언한 변수 hours에 시간값을 담는다.
-            var minute = replaceTime.substring(2, 4);    // 선언한 변수 minute에 분을 담는다.
-
-
-
-            // isFinite함수를 사용하여 문자가 선언되었는지 확인한다.
-            if(isFinite(hours + minute) == false) {
-                alert("문자는 입력하실 수 없습니다.");
-                time.value = "00:00";
-                return false;
-            }
-
-
-
-            // 두 변수의 시간과 분을 합쳐 입력한 시간이 24시가 넘는지를 체크한다.
-            if(hours + minute > 2400) {
-                alert("시간은 24시를 넘길 수 없습니다.");
-                time.value = "24:00";
-                return false;
-            }
-
-
-
-            // 입력한 분의 값이 60분을 넘는지 체크한다.
-            if(minute > 60) {
-                alert("분은 60분을 넘길 수 없습니다.");
-                time.value = hours + ":00";
-                return false;
-            }
-
-            time.value = hours + ":" + minute;
-        }
-    }
-</script>
-
   <title>Upload page</title>
 
   <!-- Custom fonts for this theme -->
@@ -109,12 +58,12 @@ function inputPhoneNumber(obj) {
 
   <!-- Theme CSS -->
   <link href="css/freelancer.min.css" rel="stylesheet">
-  <link href= "css/bootstrap-datetimepicker.min.css" rel="stylesheet">
 
 </head>
 
 <body id="page-top">
 
+ 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
     <div class="container">
@@ -169,7 +118,8 @@ function inputPhoneNumber(obj) {
               </div>
             </div>
             
-            <div class="control-group">
+            <!-- 선생님 정보 -->
+            <!-- <div class="control-group">
               <div class="form-group floating-label-form-group controls mb-0 pb-2">
                 <label>이름</label>
                 <input class="form-control" id="name" name="name" type="text" placeholder="이름" required="required" data-validation-required-message="이름을 입력해주세요.">
@@ -191,43 +141,65 @@ function inputPhoneNumber(obj) {
                 <input class="form-control" id="t_email" name="t_email" type="email" placeholder="이메일 주소" required="required" data-validation-required-message="이메일 주소를 입력해주세요.">
                 <p class="help-block text-danger"></p>
               </div>
-            </div>
+            </div> -->
             
             <div class="control-group">
               <div class="form-group floating-label-form-group controls mb-0 pb-2">
                 <label>시작일</label>
-                <input class="form-control" id="startTime" name="startTime" placeholder="시작일" required="required" data-validation-required-message="시작일을 입력해주세요.">
-                <script>
-			  $( "#startTime" ).datepicker({
-					dateFormat: "yy-mm-dd",
-					minDate: 0
-			    });
-			</script>
-   				<input type="text" id="startTime" name="startTime" class="form-control" onKeyup="inputTimeColon(this);" placeholder="시간(24시제)" maxlength="5"/>
-                <p class="help-block text-danger"></p>
-              </div>
+                <!-- <input class="form-control" id="startTime" name="startTime" placeholder="시작일" required="required" data-validation-required-message="시작일을 입력해주세요."> -->
+
+    <div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
+                    <input type="text" class="form-control datetimepicker-input" name="startTime" data-target="#datetimepicker2"/>
+                    <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                    </div>
+                </div>
             </div>
-            
-                        <div class="well">
-  <div id="datetimepicker1" class="input-append date">
-    <input data-format="dd/MM/yyyy hh:mm:ss" type="text"></input>
-    <span class="add-on">
-      <i data-time-icon="icon-time" data-date-icon="icon-calendar">
-      </i>
-    </span>
-  </div>
+        </div>
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker2').datetimepicker({
+                    locale: 'ko'
+                });
+            });
+        </script>
+    </div>
 </div>
-           
+			<p class="help-block text-danger"></p>
+			 </div> 
+            </div>
+   				
             <div class="control-group">
               <div class="form-group floating-label-form-group controls mb-0 pb-2">
                 <label>종료일</label>
-                <input class="form-control" id="endTime" name="endTime" placeholder="종료일" required="required" data-validation-required-message="종료일을 입력해주세요.">
-                <script>
-			  $( "#endTime" ).datepicker({
-					dateFormat: "yy-mm-dd",
-					minDate: 0
-			    });
-			</script>
+                <!-- <input class="form-control" id="endTime" name="endTime" placeholder="종료일" required="required" data-validation-required-message="종료일을 입력해주세요."> -->
+                
+                <div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <div class="input-group date" id="datetimepicker3" data-target-input="nearest">
+                    <input type="text" class="form-control datetimepicker-input" name="endTime" data-target="#datetimepicker3"/>
+                    <div class="input-group-append" data-target="#datetimepicker3" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            $(function () {
+                $('#datetimepicker3').datetimepicker({
+                    locale: 'ko'
+                });
+            });    
+ 
+        </script>
+    </div>
+</div>
                 <p class="help-block text-danger"></p>
               </div>
             </div>
@@ -277,6 +249,7 @@ function inputPhoneNumber(obj) {
     </div>
   </section>
 </form>
+<!-- ------------------------------------------------------------------------------------------------------------------------------ -->
 
   <!-- Copyright Section -->
   <section class="copyright py-4 text-center text-white">
@@ -292,7 +265,7 @@ function inputPhoneNumber(obj) {
     </a>
   </div>
 
-  <!-- Portfolio Modal 1 // upload image (클릭했을 때) -->
+  <!-- Upload Modal 1 // upload image (클릭했을 때) -->
   <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-labelledby="portfolioModal1Label" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
       <div class="modal-content">
@@ -306,17 +279,17 @@ function inputPhoneNumber(obj) {
           <div class="container">
             <div class="row justify-content-center">
               <div class="col-lg-8">
-                <!-- Portfolio Modal - Title -->
+                <!-- Upload Modal - Title -->
                 <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">이미지 첨부</h2>
                 <!-- Icon Divider -->
                 <div class="divider-custom">
                   <div class="divider-custom-line"></div>
                 </div>
                 
-                <!-- Portfolio Modal - Image -->
+                <!-- Upload Modal - Image -->
                 <img class="img-fluid rounded mb-5" src="img/smileDarkgray.svg" alt="">
                 
-                <!-- Portfolio Modal - Text -->
+                <!-- Upload Modal - Text -->
                 <p class="mb-5">이미지를 첨부해주세요. (.jpg만 가능)</p>
                        
                 <!-- image test -->
@@ -343,11 +316,10 @@ function inputPhoneNumber(obj) {
   <!-- Contact Form JavaScript -->
   <script src="js/jqBootstrapValidation.js"></script>
   <script src="js/contact_me.js"></script>
-  <script src="js/bootstrap-datetimepicker.min.js"></script>
+<!--   <script src="js/bootstrap-datetimepicker.min.js"></script> 없어도 될듯--> 
 
   <!-- Custom scripts for this template -->
   <script src="js/freelancer.min.js"></script>
 
 </body>
-
 </html>
